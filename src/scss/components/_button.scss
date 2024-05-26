@@ -1,0 +1,41 @@
+@import '../base/_settings.scss';
+
+button {
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    margin: 1rem 0;
+    padding: 0.5rem 1.25rem;
+    cursor: pointer;
+    &:disabled {
+        cursor: default;
+    }
+}
+
+.button__primary {
+    border-color: $secondary-color;
+    background-color: $secondary-color;
+    color: $typography-color;
+    &:hover:enabled {
+        border-color: $secondary-hover;
+        background-color: $secondary-hover;
+    }
+}
+
+.button-l {
+    border-radius: 30px;
+    &:focus-visible {
+        border-radius: 30px;
+    }
+}
+
+.button__square {
+    padding: 10px;
+    border-radius: 100%;
+    line-height: 0;
+    &:focus-visible {
+        border-radius: 100%;
+    }
+}

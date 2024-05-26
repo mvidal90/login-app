@@ -1,0 +1,163 @@
+* {
+    letter-spacing: 0.5px;
+}
+
+@mixin body-size($deskSize, $mobileSize) {
+    @media only screen and (min-width: 550px) {
+        line-height: $deskSize * 1.5;
+        font-size: $deskSize; //18px
+    }
+
+    @media only screen and (max-width: 550px) {
+        font-size: $mobileSize; //18px
+        line-height: $mobileSize * 1.5;
+    }
+}
+
+h1 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.75rem;
+    @include body-size(1.75rem, 1.5rem);
+}
+
+h2 {
+    font-weight: 600;
+    @include body-size(1.5rem, 1.25rem);
+}
+
+h3 {
+    font-weight: 600;
+    @include body-size(1.25rem, 1.125rem);
+}
+
+/***BODY TYPES***/
+
+$types: bold, normal, italic;
+
+$sizes: (('l' 1.125rem 1.125rem), ('m' 1rem 1rem), ('s' 0.875rem 0.875rem));
+
+@each $type in $types {
+    @each $name, $deskSize, $mobileSize in $sizes {
+        @if #{$type}== 'bold' {
+            .body-#{$name}-#{$type} {
+                font-size: $deskSize;
+                font-weight: bold;
+                @include body-size($deskSize, $mobileSize);
+            }
+        } @else {
+            .body-#{$name}-#{$type} {
+                font-size: $deskSize;
+                font-weight: 400;
+                font-style: $type;
+                @include body-size($deskSize, $mobileSize);
+            }
+        }
+
+        @if #{$type}==normal {
+            .link-#{$name}-#{$type} {
+                font-size: $deskSize;
+                font-weight: $type;
+                text-decoration: underline;
+                @include body-size($deskSize, $mobileSize);
+            }
+        }
+    }
+}
+
+$buttonSizes: (('l' 1.125rem 1.125rem), ('m' 1rem 1rem));
+
+@each $name, $deskSize, $mobileSize in $buttonSizes {
+    .button-#{$name}-sbold {
+        font-style: normal;
+        font-weight: 600;
+        @include body-size($deskSize, $mobileSize);
+    }
+}
+$hightLightSizes: (('1' 2.25rem 1.5rem), ('2' 2.5rem 2rem));
+
+@each $name, $deskSize, $mobileSize in $hightLightSizes {
+    .highlight-#{$name}-bold {
+        font-style: normal;
+        font-weight: 700;
+        @include body-size($deskSize, $mobileSize);
+    }
+}
+
+.highlight-3-regular {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 150%;
+}
+.label-sbold {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+//label medium es igual a body-m-regular
+
+.login-title {
+    font-size: 2.5rem;
+    line-height: 3.75rem;
+    font-weight: 600;
+}
+
+.subtitle-l-sb {
+    font-size: 1.5rem;
+    line-height: 1.5rem * 1.5;
+    font-weight: 600;
+}
+
+.subtitle-m {
+    font-size: 1.25rem;
+    line-height: 1.25rem * 1.5;
+    font-weight: 400;
+}
+.subtitle-m-sb {
+    font-size: 1.25rem;
+    line-height: 1.25rem * 1.5;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2.5rem * 1.25;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 2.5rem * 1.5;
+}
+
+.button-m-sb {
+    font-size: 1.25rem;
+    line-height: 1.25rem * 1.5;
+    font-weight: 600;
+}
+
+.font-card-sb {
+    font-size: 3.5rem;
+    line-height: 3.5rem * 1.5;
+    font-weight: 600;
+}
+
+.hl-1-bold {
+    font-size: 2.25rem;
+    line-height: 2.25rem * 1.5;
+    font-weight: 700;
+}
+
+.hightlight-h2-bold {
+    font-size: 2.5rem;
+    line-height: 3.75rem;
+    font-weight: 700;
+    @media only screen and (max-width: 550px) {
+        font-size: 2rem;
+        line-height: 3rem;
+        font-weight: 700;
+    }
+}

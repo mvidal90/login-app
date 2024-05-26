@@ -1,0 +1,9 @@
+@import "../base/_settings.scss";
+
+.view__container{
+    background-color: $background-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}

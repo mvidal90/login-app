@@ -3,7 +3,7 @@ import {Col, Container, Row} from 'react-bootstrap';
 
 import {AuthContext} from '../context/AuthContext';
 import {useForm} from '../hooks/useForm';
-import {postLogin} from '../utils/api';
+import {postLogin, setJWT} from '../utils/api';
 
 import '../scss/components/_login.scss';
 
@@ -16,6 +16,8 @@ export default function Login() {
         try {
             const {user, jwt} = await postLogin(values);
             localStorage.setItem("jwt", jwt)
+            const auth = `Bearer ${jwt}`
+            setJWT(auth)
             setUser(user);
         } catch (error) {
             logout();
@@ -48,7 +50,7 @@ export default function Login() {
                                     <label htmlFor="password">Contraseña</label>
                                     <input type="password" id='password' name='password' onChange={handleInputChange}/>
                                 </div>
-                                <button type='submit' className='button__primary'>Iniciar Sesion</button>
+                                <button type='submit' className='button__secondary'>Iniciar Sesion</button>
                             </form>
                         </Col>
                 </Row>

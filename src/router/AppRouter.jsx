@@ -10,6 +10,7 @@ import {AuthContext} from '../context/AuthContext';
 import Login from '../components/Login';
 
 import '../scss/components/_view.scss';
+import { Dashboard } from '../components/Dashboard';
 
 export const AppRouter = () => {
     const {user} = useContext(AuthContext);
@@ -22,7 +23,7 @@ export const AppRouter = () => {
                             <>
                                 <Route
                                     path="/dashboard"
-                                    element={< >DASHBOARD</>}
+                                    element={<Dashboard/>}
                                 />
                                 <Route
                                     path="*"
